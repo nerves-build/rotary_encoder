@@ -1,0 +1,41 @@
+<div class="encoder-top flex-container" id="holdsit">
+  <div class="column name-label">
+    <%= @name %>:
+    <div style="cursor: pointer;" class="clicker right" data-confirm="Are you sure?" phx-click="delete_encoder" phx-value-name="<%= @name %>">X</div>
+        </div>
+        <div class="column pin-label">
+            <%= draw_encoder(@device) %>
+            <%= draw_button(@device) %>
+        </div>
+        <div class="val-label">
+            <div class="click">
+                <div class="click-label" id="down-<%= @name %>">
+                    down
+                </div>
+                <div class="click-label" id="up-<%= @name %>">
+                    Up - Duration: <%= @duration %>
+                </div>
+            </div>
+        </div>
+        <%= if should_draw_encoder?(@device) do %>
+        <div class="val-label">
+            <%= @value %>
+        </div>
+        <div class="direction_holder">
+            <div id="ccw-<%= @name %>" class="column dir-label dir-ccw">
+                CCW
+            </div>
+            <div class="half"></div>
+            <div id="cw-<%= @name %>" class="column dir-label dir-cw">
+                CW
+
+            </div>
+        </div>
+        <% end %>
+        <div class="invisible">
+            <input id="ccw_trigger-<%= @name %>" phx-hook="Jumpers" phx-value-dir="ccw-<%= @name %>" value="<%= @ccw_trigger %>" />
+    <input id="cw_trigger-<%= @name %>" phx-hook="Jumpers" phx-value-dir="cw-<%= @name %>" value="<%= @cw_trigger %>" />
+    <input id="down_trigger-<%= @name %>" phx-hook="Jumpers" phx-value-dir="down-<%= @name %>" value="<%= @down_trigger %>" />
+    <input id="up_trigger-<%= @name %>" phx-hook="Jumpers" phx-value-dir="up-<%= @name %>" value="<%= @up_trigger %>" />
+  </div>
+</div>

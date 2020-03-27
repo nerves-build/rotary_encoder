@@ -1,0 +1,37 @@
+<form phx-submit="add-encoder">
+  <fieldset class="border">
+    <div class="name">
+      <div class="column column-20">
+        <label for="nameField">Name</label>
+        <input type="text" placeholder="main" id="nameField" name="name" value="<%= @name %>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column column-6">
+        <label for="rot_enc_a">Encoder A</label>
+        <input type="text" placeholder="23" id="rot_enc_a" name="encoder_a_pin" value="<%= @encoder_a_pin %>">
+      </div>
+      <div class="column column-6">
+        <label for="rot_enc_b">Encoder B</label>
+        <input type="text" placeholder="24" id="rot_enc_b" name="encoder_b_pin" value="<%= @encoder_b_pin %>">
+      </div>
+      <div class="column column-8">
+        <label for="rot_enc_click">Encoder Button</label>
+        <input type="text" placeholder="25" id="rot_enc_click" name="button_pin" value="<%= @button_pin %>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column column-14">
+        <select class="button-primary" name="btn_default_state">
+          <option value="button_open">Normally Open</option>
+          <option value="button_closed">Normally Closed</option>
+        </select>
+      </div>
+      <div class="column column-6 align-right">
+        <input class="button-primary" type="submit" value="Add Encoder">
+      </div>
+    </div>
+  </div>
+  <%= @error_message %>
+</fieldset>
+</form>
